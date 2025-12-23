@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opay — Beyond Banking</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .features-section {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        padding: 80px 40px;
+      }
+      .carousel-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .carousel-btn {
+        background: #222;
+        color: #7cfc00;
+        border: none;
+        padding: 12px 18px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: all 0.3s;
+        font-weight: 700;
+      }
+      .carousel-btn:hover {
+        background: #7cfc00;
+        color: #222;
+      }
+      .features-carousel {
+        flex: 1;
+        overflow: hidden;
+      }
+      .carousel-track {
+        display: flex;
+        gap: 30px;
+        transition: transform 0.4s ease-in-out;
+      }
+      .carousel-track.slide-1 {
+        transform: translateX(0);
+      }
+      .carousel-track.slide-2 {
+        transform: translateX(calc(-100% - 30px));
+      }
+      .carousel-track.slide-3 {
+        transform: translateX(calc(-200% - 60px));
+      }
+      .carousel-track.slide-4 {
+        transform: translateX(calc(-300% - 90px));
+      }
+      .carousel-track.slide-5 {
+        transform: translateX(calc(-400% - 120px));
+      }
+      .carousel-track.slide-6 {
+        transform: translateX(calc(-500% - 150px));
+      }
+      .feature-card {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s;
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 350px;
+      }
+      .feature-card:hover {
+        transform: translateY(-10px);
+      }
+      .feature-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+      .feature-card h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #222;
+      }
+      .feature-card p {
+        font-size: 16px;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .testimonials-section {
+        padding: 80px 40px;
+        background: #f9f9f9;
+      }
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .testimonial-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+      }
+      .testimonial-card p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.7;
+        margin-bottom: 15px;
+      }
+      .testimonial-author {
+        font-weight: 700;
+        color: #222;
+        font-size: 14px;
+      }
+      .testimonial-role {
+        font-size: 12px;
+        color: #999;
+      }
+
+      .security-section {
+        background: rgba(0, 0, 0, 0.05);
+        padding: 80px 40px;
+      }
+      .security-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .security-card {
+        background: white;
+        padding: 35px;
+        border-radius: 12px;
+        border-left: 4px solid #7cfc00;
+      }
+      .security-card h4 {
+        font-size: 20px;
+        margin-bottom: 12px;
+        color: #222;
+      }
+      .security-card p {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 44px;
+        margin-bottom: 60px;
+        color: #222;
+      }
+
+      footer {
+        background: #111;
+        color: #ddd;
+        padding: 60px 40px 30px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        margin-bottom: 40px;
+      }
+      .footer-col h4 {
+        color: #7cfc00;
+        font-size: 18px;
+        margin-bottom: 18px;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col li {
+        margin-bottom: 10px;
+      }
+      .footer-col a {
+        color: #bbb;
+        text-decoration: none;
+        transition: color 0.25s;
+      }
+      .footer-col a:hover {
+        color: #7cfc00;
+      }
+      .footer-bottom {
+        border-top: 1px solid #333;
+        padding-top: 30px;
+        text-align: center;
+        color: #888;
+      }
+      .social-links {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      .social-links a {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        background: #222;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 35px;
+        color: #7cfc00;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <navbar>
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        ">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+          ">
+          <div
+            class="nav-brand"
+            style="color: #fff; font-weight: 700; font-size: 20px">
+            Opay
+          </div>
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </div>
+        <div class="nav-links">
+          <a href="opay.html">Home</a>
+          <a href="personal.html" class="personal">Personal</a>
+          <a href="business.html">Business</a>
+          <a href="#company">Company</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </navbar>
+
+    <!-- Hero Section -->
+    <section
+      class="container"
+      style="
+        background-image: url('https://files.opayweb.com/file/video/headerBannerMobile.jpg');
+        background-attachment: fixed;
+      ">
+      <div class="text-box" style="text-align: left; max-width: 650px">
+        <h1>We are Beyond Banking</h1>
+        <p style="font-size: 20px; margin-bottom: 15px">
+          OPay offers secure, easy, and affordable financial solutions. Enjoy
+          instant account opening, fast transfers, cashback rewards, and much
+          more.
+        </p>
+        <div
+          style="display: flex; gap: 12px; margin-top: 25px; flex-wrap: wrap">
+          <a
+            class="cta-button"
+            href="#features"
+            style="background: #7cfc00; color: #000"
+            >Explore Features</a
+          >
+          <a
+            class="cta-button"
+            href="personal.html"
+            style="background: #00bfff; color: #fff"
+            >Get Started</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+      <h2 class="section-title">Why Choose Opay?</h2>
+      <div class="carousel-container">
+        <button class="carousel-btn prev" onclick="changeSlide(-1)">
+          ❮ prev
+        </button>
+        <div class="features-carousel">
+          <div class="carousel-track">
+            <div class="feature-card">
+              <div class="feature-icon">⚡</div>
+              <h3>Easy Account Opening</h3>
+              <p>Instant account opening with amazing welcome bonuses</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">💸</div>
+              <h3>Instant Transfer</h3>
+              <p>
+                Instant transfer with 100% successful rate to all banks in
+                Nigeria anytime
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">💰</div>
+              <h3>Airtime/Data Top-up with Cashback</h3>
+              <p>Up to 6% instant cashback on airtime/data top-up every time</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">💳</div>
+              <h3>Instant and Free Debit Card</h3>
+              <p>
+                Apply and get a card instantly. Enjoy 10 free ATM withdrawals
+                monthly and zero maintenance fee
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">📈</div>
+              <h3>OWealth with amazing daily interest</h3>
+              <p>OWealth use as balance with amazing daily interest</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">📞</div>
+              <h3>Quick Customer Service</h3>
+              <p>
+                7*24 accessible and quick resolution via online and physical
+                customer service channels
+              </p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn next" onclick="changeSlide(1)">
+          next ❯
+        </button>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section
+      class="container right"
+      style="
+        background-image: url('https://files.opayweb.com/file/video/OurServices01.jpg');
+        padding: 80px 40px;
+        min-height: 60vh;
+      ">
+      <div class="text-box right" style="max-width: 700px">
+        <h2 style="font-size: 44px; margin-bottom: 20px">
+          Our Complete Services
+        </h2>
+        <p style="font-size: 18px; margin-bottom: 30px">
+          Everything you need for modern financial living, all in one app.
+        </p>
+        <ul style="list-style: none; margin-bottom: 30px">
+          <li style="margin-bottom: 12px">✓ Money Transfers & Remittance</li>
+          <li style="margin-bottom: 12px">✓ Airtime & Data with Cashback</li>
+          <li style="margin-bottom: 12px">✓ Bill Payments</li>
+          <li style="margin-bottom: 12px">
+            ✓ OWealth Savings (Daily Interest)
+          </li>
+          <li style="margin-bottom: 12px">✓ Quick Loans & Credit</li>
+          <li style="margin-bottom: 12px">✓ Investment Options</li>
+        </ul>
+        <a
+          class="cta"
+          href="business.html"
+          style="background: #00bfff; color: #fff; padding: 14px 32px"
+          >Learn More</a
+        >
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+      <h2 class="section-title">What Our Customers Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p>
+            "Opay makes banking very easy for me. Transfers are seamless and the
+            customer service is outstanding. I give it a solid 10/10."
+          </p>
+          <div class="testimonial-author">Malik O.</div>
+          <div class="testimonial-role">Customer</div>
+        </div>
+        <div class="testimonial-card">
+          <p>
+            "The network uptime is exceptional—100% reliable! Super fast
+            transactions and quick, efficient customer service. Highly
+            recommended."
+          </p>
+          <div class="testimonial-author">Mrs. Benson</div>
+          <div class="testimonial-role">Business Agent</div>
+        </div>
+        <div class="testimonial-card">
+          <p>
+            "I've been using Opay since 2020 and love it! Money transfers arrive
+            in 1-2 seconds. The reliability is incredible."
+          </p>
+          <div class="testimonial-author">Mummy Habeeb</div>
+          <div class="testimonial-role">Agent</div>
+        </div>
+        <div class="testimonial-card">
+          <p>
+            "Over 4 years as an Opay user and I'm completely satisfied. My money
+            has never been stuck. Truly a trusted platform."
+          </p>
+          <div class="testimonial-author">Mr. Adebayo</div>
+          <div class="testimonial-role">Customer</div>
+        </div>
+        <div class="testimonial-card">
+          <p>
+            "I wrongly sent money to an account, but Opay resolved it in 15-30
+            minutes! Excellent problem-solving and support."
+          </p>
+          <div class="testimonial-author">Mr. Oyebadejo</div>
+          <div class="testimonial-role">Customer</div>
+        </div>
+        <div class="testimonial-card">
+          <p>
+            "Opay's quick customer service and super-fast complaint resolution
+            impressed me. I definitely recommend them to others."
+          </p>
+          <div class="testimonial-author">Ms. Robson</div>
+          <div class="testimonial-role">Student</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security-section" id="security">
+      <h2 class="section-title">Your Security & Privacy Matters</h2>
+      <div class="security-grid">
+        <div class="security-card">
+          <h4>🔐 Advanced Encryption</h4>
+          <p>
+            Your data is stored and encrypted using bank-level cryptography.
+            Daily security scans protect against threats.
+          </p>
+        </div>
+        <div class="security-card">
+          <h4>✓ PCI DSS Compliant</h4>
+          <p>
+            All transactions are encrypted and secured. We meet international
+            payment security standards.
+          </p>
+        </div>
+        <div class="security-card">
+          <h4>🚨 Quick Lock Feature</h4>
+          <p>
+            Dial *955*131# or *955*132# to instantly lock your account or card
+            if lost or stolen.
+          </p>
+        </div>
+        <div class="security-card">
+          <h4>📞 24/7 Customer Support</h4>
+          <p>
+            Available round-the-clock via in-app chat, phone (0700 8888 328), or
+            physical locations nationwide.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>About Opay</h4>
+          <ul>
+            <li><a href="#">Company Info</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press & Media</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#">Opay Wallet</a></li>
+            <li><a href="#">Opay Card</a></li>
+            <li><a href="#">OWealth Savings</a></li>
+            <li><a href="#">Opay Loans</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Report Issue</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Opay Digital Services. All rights reserved. Beyond Banking
+          for Everyone.
+        </p>
+        <div class="social-links">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Twitter">𝕏</a>
+          <a href="#" title="Instagram">📷</a>
+          <a href="#" title="LinkedIn">in</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

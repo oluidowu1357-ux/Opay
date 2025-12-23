@@ -1,0 +1,389 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+/* Navbar */
+navbar {
+  position: sticky;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  padding: 18px 36px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100;
+}
+navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 8px 14px;
+  transition: color 0.25s;
+}
+navbar a.personal {
+  color: #7cfc00;
+}
+navbar a:hover {
+  color: #00bfff;
+}
+/* ...existing code... */
+/* Responsive layout & navigation */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial;
+  color: #111;
+  background: #fff;
+}
+
+navbar {
+  background: #0a4ea6;
+  color: #fff;
+}
+navbar > div {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Brand and toggle */
+.nav-brand {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+.nav-toggle {
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 6px;
+}
+
+/* Navigation links (mobile first) */
+.nav-links {
+  display: none;
+  margin-top: 12px;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 0;
+  display: block;
+}
+.nav-links a.personal {
+  font-weight: 700;
+}
+
+/* When open on mobile */
+.nav-links.open {
+  display: flex;
+}
+
+/* Hero */
+.hero {
+  background-size: cover;
+  background-position: center;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+.hero .inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 36px 16px;
+}
+.hero h1 {
+  font-size: 1.6rem;
+  margin: 0 0 8px;
+  line-height: 1.05;
+}
+.hero p {
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.4;
+  max-width: 56ch;
+}
+.cta {
+  background: #fff;
+  color: #0a4ea6;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-block;
+}
+
+/* Content */
+.content {
+  max-width: 980px;
+  margin: 24px auto;
+  padding: 0 16px 40px;
+}
+.content h2 {
+  font-size: 1.125rem;
+  margin: 0 0 12px;
+}
+.content ul {
+  padding-left: 20px;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr;
+  list-style: disc;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 16px;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+  navbar > div {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .nav-links {
+    display: flex;
+    margin-top: 0;
+    gap: 18px;
+    flex-direction: row;
+    width: auto;
+  }
+  .nav-links a {
+    padding: 0;
+  }
+  .hero {
+    min-height: 420px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .content ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 520px;
+  }
+  .hero .inner {
+    padding: 56px 24px;
+  }
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+  .hero p {
+    font-size: 1.125rem;
+  }
+  .content {
+    padding: 0 24px 60px;
+  }
+}
+/* Mobile nav */
+.nav-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  padding: 6px;
+  transition: transform 0.35s ease, color 0.25s ease;
+}
+.nav-toggle.open {
+  transform: rotate(90deg);
+  color: #7cfc00;
+}
+
+/* Hero / Container */
+.hero,
+.container {
+  background-size: cover;
+  background-position: center;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+.hero::before,
+.container::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+/* Content boxes inside hero */
+.hero .inner,
+.text-box,
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 40px;
+  max-width: 700px;
+}
+.hero .inner h1,
+.text-box h1,
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 18px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  line-height: 1.1;
+}
+.hero .inner p,
+.text-box p,
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* CTA buttons */
+.cta,
+.cta-button {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 40px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+.cta {
+  background: #7cfc00;
+  color: #000;
+}
+.cta-button {
+  background: #7cfc00;
+  color: #000;
+}
+.cta-button.alt {
+  background: #00bfff;
+  color: #fff;
+}
+.cta:hover,
+.cta-button:hover {
+  transform: scale(1.03);
+}
+
+/* Right section */
+.container.right {
+  min-height: 60vh;
+  justify-content: flex-start;
+}
+.container.right::before {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+.text-box.right {
+  padding: 40px;
+  text-align: left;
+}
+
+/* Spacer */
+.spacer {
+  background: #fff;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.spacer h2 {
+  color: #222;
+  font-size: 42px;
+}
+
+/* Footer */
+footer {
+  background: #111;
+  color: #ddd;
+  padding: 40px;
+  text-align: center;
+}
+
+/* Utility */
+.content,
+main {
+  padding: 60px;
+}
+
+@media (max-width: 768px) {
+  navbar {
+    padding: 12px;
+  }
+  navbar a {
+    font-size: 14px;
+  }
+  .hero,
+  .container {
+    min-height: 50vh;
+  }
+  .hero .inner h1,
+  .text-box h1 {
+    font-size: 32px;
+  }
+  .spacer h2 {
+    font-size: 28px;
+  }
+  .nav-toggle {
+    display: inline-block;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 0 12px;
+    margin-top: 8px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease;
+  }
+  .nav-links.open {
+    max-height: 400px;
+    opacity: 1;
+    padding: 8px 12px;
+  }
+}
